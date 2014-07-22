@@ -2,7 +2,7 @@
 ##Description
 A [Yii2 input widget](http://www.yiiframework.com/doc-2.0/yii-widgets-inputwidget.html) which provides a user-friendly interface for selecting geographical coordinates via [Google maps](https://www.google.com/maps/preview). Allows users to select geographical coordinates by clicking on an interative Google map embedded into you web-page.
 
-##Usage
+##Usage examples
 
 ###Minimal example
 To reproduce the following minimal example you will need to acquire a Google maps browser key as described in [Google maps developer's guide](https://developers.google.com/maps/documentation/javascript/tutorial#api_key). The key may be stored as an application parameter for easy referencing or anywhere you like. All other widget parameters have some sensible default values and may not be configured.
