@@ -138,11 +138,8 @@ function MapInputWidget ( widget )
 
     var initializeWidget = function()
     {
-        if ( hasInitialValue() )
-        {
-            var point = getInitialValue();
-            self.setPosition(point);
-        }
+        var point = getInitialValue();
+        self.setPosition(point);
         $(widget).data('initialized',true);
     };
 
@@ -163,12 +160,20 @@ function MapInputWidget ( widget )
 
     var getInitialValue = function()
     {
+        var point;
         var pattern = getPattern();
         var latitudeFirst = pattern.indexOf('%latitude%') < pattern.indexOf('%longitude%');
         var pointString = $(input).prop('value');
-        var latitude = pointString.match(/[\d.]+/)[0];
-        var longitude = pointString.match(/[\d.]+/)[0];
-        var point = new google.maps.LatLng(latitude,longitude);
+        if ( pointString !== '' )
+        {
+            var latitude = pointString.match(/[\d.]+/)[0];
+            var longitude = pointString.match(/[\d.]+/)[0];
+            point = new google.maps.LatLng(latitude,longitude);
+        }
+        else
+        {
+            point = null;
+        }
         return point;
     };
 
@@ -243,12 +248,25 @@ function MapInputWidget ( widget )
     this.setPosition = function ( pointData )
     {
 
-        var point = makePoint(pointData);
-
         if ( map.marker )
         {
             map.marker.setMap(null);
         }
+
+        if ( pointData === null )
+        {
+            // Disable the input in order not to send it in POST array
+            $(input).prop('disabled',true);
+            return;
+        }
+        else
+        {
+            // Enable the input in order to send in in POST array
+            $(input).prop('disabled',false);
+        }
+
+        var point = makePoint(pointData);
+
         map.panTo(point);
         map.marker = new google.maps.Marker
         (
