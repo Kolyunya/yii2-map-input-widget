@@ -1,0 +1,33 @@
+{
+    "name": "kolyunya/yii2-map-input-widget",
+    "description": "Yii2 map input widget. Allows you to select geographcal coordinates via a human-friendly inteface.",
+    "keywords":
+    [
+        "yii2",
+        "extension",
+        "widget",
+        "map",
+        "input",
+        "geocoding",
+        "geo-coordinates",
+        "coordinates"
+    ],
+    "homepage": "https://github.com/Kolyunya/yii2-map-input-widget",
+    "type": "yii2-extension",
+    "license": "GNU GPL v3.0",
+    "authors":
+    [
+        {
+            "name": "Oleynikov Nikolay",
+            "email": "OleynikovNY@mail.ru",
+            "homepage": "http://github.com/Kolyunya/"
+        }
+    ],
+    "autoload":
+    {
+        "psr-4":
+        {
+            "kolyunya\\yii2\\": "sources"
+        }
+    }
+}
