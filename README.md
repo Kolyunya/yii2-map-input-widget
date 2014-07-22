@@ -25,40 +25,40 @@ echo $form->field($model,'coordinates')->widget
     'kolyunya\yii2\widgets\MapInputWidget',
     [
 
-		// Google maps browser key.
-		'key' => $key,
+        // Google maps browser key.
+        'key' => $key,
 
-		// Initial map center latitude. Used only when the input has no value.
-		// Otherwise the input value latitude will be used as map center.
-		// Defaults to 0.
-		'latitude' => 42,
+        // Initial map center latitude. Used only when the input has no value.
+        // Otherwise the input value latitude will be used as map center.
+        // Defaults to 0.
+        'latitude' => 42,
 
-		// Initial map center longitude. Used only when the input has no value.
-		// Otherwise the input value longitude will be used as map center.
-		// Defaults to 0.
-		'longitude' => 42,
+        // Initial map center longitude. Used only when the input has no value.
+        // Otherwise the input value longitude will be used as map center.
+        // Defaults to 0.
+        'longitude' => 42,
 
-		// Initial map zoom.
-		// Defaults to 0.
-		'zoom' => 12,
+        // Initial map zoom.
+        // Defaults to 0.
+        'zoom' => 12,
 
-		// Map container width.
-		// Defaults to '100%'.
-		'width' => '420px',
+        // Map container width.
+        // Defaults to '100%'.
+        'width' => '420px',
 
-		// Map container height.
-		// Defaults to '300px'.
-		'height' => '420px',
+        // Map container height.
+        // Defaults to '300px'.
+        'height' => '420px',
 
-		// Coordinates representation pattern. Will be use to construct a value of an actual input.
-		// Will also be used to parse an input value to show the initial input value on the map.
-		// You can use two macro-variables: '%latitude%' and '%longitude%'.
-		// Defaults to '(%latitude%,%longitude%)'.
-		'pattern' => '[%longitude%-%latitude%]',
+        // Coordinates representation pattern. Will be use to construct a value of an actual input.
+        // Will also be used to parse an input value to show the initial input value on the map.
+        // You can use two macro-variables: '%latitude%' and '%longitude%'.
+        // Defaults to '(%latitude%,%longitude%)'.
+        'pattern' => '[%longitude%-%latitude%]',
 
-		// Google map type. See official Google maps reference for details.
-		// Defaults to 'roadmap'
-		'mapType' => 'satellite',
+        // Google map type. See official Google maps reference for details.
+        // Defaults to 'roadmap'
+        'mapType' => 'satellite',
 
     ]
 );
