@@ -67,5 +67,5 @@ echo $form->field($model,'coordinates')->widget
 );
 ~~~
 
-##Widget demo
+##Demo
 A simple widget demo is available [here](http://kolyunya.github.io/yii2-map-input-widget/). You may inspect the hidden input value via some web-developer tool (e.g. [Firebug](https://addons.mozilla.org/ru/firefox/addon/firebug/)) to see how geographical coordinates are represented inside the widget.
