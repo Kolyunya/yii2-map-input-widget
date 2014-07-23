@@ -3,6 +3,8 @@
 ##Description
 A [Yii2 input widget](http://www.yiiframework.com/doc-2.0/yii-widgets-inputwidget.html) which provides a user-friendly interface for selecting geographical coordinates via [Google maps](https://www.google.com/maps/preview). Allows users to select geographical coordinates by clicking on an interative Google map embedded into you web-page.
 
+The widget is [composer](https://getcomposer.org/)-enabled. You can aquire the latest available version from the [packagist repository](https://packagist.org/packages/kolyunya/yii2-map-input-widget).
+
 ##Usage examples
 
 ###Minimal example
