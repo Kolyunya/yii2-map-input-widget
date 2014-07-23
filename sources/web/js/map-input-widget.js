@@ -278,6 +278,16 @@ function MapInputWidget ( widget )
             }
         );
 
+        google.maps.event.addListener
+        (
+            map.marker,
+            'dragend',
+            function()
+            {
+                self.setPosition(this.getPosition());
+            }
+        );
+
         var pattern = $(widget).data('pattern');
         var pointString = makePointString(point);
         $(input).prop('value',pointString);
