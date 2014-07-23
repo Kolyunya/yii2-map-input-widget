@@ -5,6 +5,9 @@ A [Yii2 input widget](http://www.yiiframework.com/doc-2.0/yii-widgets-inputwidge
 
 The widget is [composer](https://getcomposer.org/)-enabled. You can aquire the latest available version from the [packagist repository](https://packagist.org/packages/kolyunya/yii2-map-input-widget).
 
+##Demo
+A simple widget demo is available [here](http://kolyunya.github.io/yii2-map-input-widget/). You may inspect the hidden input value via some web-developer tool (e.g. [Firebug](https://addons.mozilla.org/ru/firefox/addon/firebug/)) to see how geographical coordinates are represented inside the widget.
+
 ##Usage examples
 
 ###Minimal example
@@ -66,6 +69,3 @@ echo $form->field($model,'coordinates')->widget
     ]
 );
 ~~~
-
-##Demo
-A simple widget demo is available [here](http://kolyunya.github.io/yii2-map-input-widget/). You may inspect the hidden input value via some web-developer tool (e.g. [Firebug](https://addons.mozilla.org/ru/firefox/addon/firebug/)) to see how geographical coordinates are represented inside the widget.
