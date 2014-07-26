@@ -40,7 +40,14 @@
         public function __construct( $config = [] )
         {
             $this->js[] = $this->getGoogleMapScriptUrl();
-            $this->js[] = 'js/map-input-widget.js';
+            if ( YII_DEBUG )
+            {
+                $this->js[] = 'js/map-input-widget.js';
+            }
+            else
+            {
+                $this->js[] = 'js/map-input-widget.min.js';
+            }
             parent::__construct($config);
         }
 
