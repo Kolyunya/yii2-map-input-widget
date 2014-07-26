@@ -268,13 +268,18 @@ function MapInputWidget ( widget )
         var point = makePoint(pointData);
 
         map.panTo(point);
+        var markerAnimation = null;
+        if ( $(widget).data('animate-marker') === 1 )
+        {
+            markerAnimation = google.maps.Animation.DROP;
+        }
         map.marker = new google.maps.Marker
         (
             {
                 map: map,
                 position: point,
                 draggable: true,
-                animation: google.maps.Animation.DROP,
+                animation: markerAnimation,
             }
         );
 

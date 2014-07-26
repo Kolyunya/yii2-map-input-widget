@@ -39,6 +39,7 @@
                 'zoom' => $zoom,
                 'pattern' => $pattern,
                 'map-type' => $mapType,
+                'animate-marker' => $animateMarker,
             ],
         ]
     );

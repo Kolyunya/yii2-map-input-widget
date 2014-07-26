@@ -41,6 +41,8 @@
 
         public $mapType = 'roadmap';
 
+        public $animateMarker = true;
+
         public function run()
         {
 
@@ -61,6 +63,7 @@
                     'height' => $this->height,
                     'pattern' => $this->pattern,
                     'mapType' => $this->mapType,
+                    'animateMarker' => $this->animateMarker,
                 ]
             );
         }
