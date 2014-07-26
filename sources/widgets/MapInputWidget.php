@@ -41,7 +41,9 @@
 
         public $mapType = 'roadmap';
 
-        public $animateMarker = true;
+        public $animateMarker = false;
+
+        public $alignMapCenter = true;
 
         public function run()
         {
@@ -64,6 +66,7 @@
                     'pattern' => $this->pattern,
                     'mapType' => $this->mapType,
                     'animateMarker' => $this->animateMarker,
+                    'alignMapCenter' => $this->alignMapCenter,
                 ]
             );
         }

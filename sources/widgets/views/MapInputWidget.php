@@ -40,6 +40,7 @@
                 'pattern' => $pattern,
                 'map-type' => $mapType,
                 'animate-marker' => $animateMarker,
+                'align-map-center' => $alignMapCenter,
             ],
         ]
     );

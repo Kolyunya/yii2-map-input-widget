@@ -267,7 +267,11 @@ function MapInputWidget ( widget )
 
         var point = makePoint(pointData);
 
-        map.panTo(point);
+        if ( $(widget).data('align-map-center') === 1 )
+        {
+            map.panTo(point);
+        }
+
         var markerAnimation = null;
         if ( $(widget).data('animate-marker') === 1 )
         {
