@@ -66,6 +66,14 @@ echo $form->field($model,'coordinates')->widget
         // Defaults to 'roadmap'
         'mapType' => 'satellite',
 
+        // Marker animation behavior defines if a marker should be animated on position change.
+        // Defaults to false.
+        'animateMarker' => true,
+
+        // Map alignment behavior defines if a map should be centered when a marker is repositioned.
+        // Defaults to true.
+        'animateMarker' => false,
+
     ]
 );
 ~~~
