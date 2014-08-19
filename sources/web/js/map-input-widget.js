@@ -144,12 +144,21 @@ function MapInputWidget ( widget )
     {
         var point;
         var pattern = getPattern();
-        var latitudeFirst = pattern.indexOf('%latitude%') < pattern.indexOf('%longitude%');
         var pointString = $(input).prop('value');
         if ( pointString !== '' )
         {
-            var latitude = pointString.match(/[\d.]+/)[0];
-            var longitude = pointString.match(/[\d.]+/)[0];
+            //  The function has an issue - it will not parse the initial value correctly
+            //  if the pattern has more than one occurence of "%latitude%" or "%longitude%"
+            //  in a row in the begining of the string.
+            //  E.g. the initial value won't be parsed correctly against
+            //  the pattern "%latitude% - %latitude% - %longitude%".
+            var latitudePosition = pattern.indexOf('%latitude%');
+            var longitudePosition = pattern.indexOf('%longitude%');
+            var latitudeFirst = latitudePosition < longitudePosition;
+            var latitudeIndex = latitudeFirst ? 0 : 1;
+            var longitudeIndex = latitudeFirst ? 1 : 0;
+            var latitude = pointString.match(/[\d.]+/g)[latitudeIndex];
+            var longitude = pointString.match(/[\d.]+/g)[longitudeIndex];
             point = new google.maps.LatLng(latitude,longitude);
         }
         else
