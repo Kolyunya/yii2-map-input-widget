@@ -35,7 +35,8 @@
 
         private function getGoogleMapScriptUrl()
         {
-            $scriptUrl  = "http://maps.googleapis.com/maps/api/js?";
+            $protocol = \Yii::$app->request->isSecureConnection ? "https" : "http";
+            $scriptUrl  =  $protocol . "://maps.googleapis.com/maps/api/js?";
             $scriptUrl .= http_build_query
             (
                 [
