@@ -72,7 +72,7 @@ echo $form->field($model,'coordinates')->widget
 
         // Map alignment behavior defines if a map should be centered when a marker is repositioned.
         // Defaults to true.
-        'animateMarker' => false,
+        'alignMapCenter' => false,
 
     ]
 );
