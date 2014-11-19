@@ -7,7 +7,7 @@ class MapInputAsset extends \yii\web\AssetBundle
 
     public static $key;
 
-    public $sourcePath = '@kolyunya/yii2-map-input-widget/sources/web';
+    public $sourcePath = '@widget/sources/web';
 
     public $depends =
     [
