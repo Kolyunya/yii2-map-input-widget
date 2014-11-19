@@ -30,7 +30,7 @@ class MapInputWidget extends \yii\widgets\InputWidget
     public function run()
     {
 
-        Yii::setAlias('@widget','@vendor/kolyunya/yii2-map-input-widget');
+        Yii::setAlias('@kolyunya','@vendor/kolyunya');
 
         // Asset bundle should be configured with the application key
         $this->configureAssetBundle();
