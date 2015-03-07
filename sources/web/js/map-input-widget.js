@@ -157,8 +157,8 @@ function MapInputWidget ( widget )
             var latitudeFirst = latitudePosition < longitudePosition;
             var latitudeIndex = latitudeFirst ? 0 : 1;
             var longitudeIndex = latitudeFirst ? 1 : 0;
-            var latitude = pointString.match(/[\d.]+/g)[latitudeIndex];
-            var longitude = pointString.match(/[\d.]+/g)[longitudeIndex];
+            var latitude = pointString.match(/[-\d.]+/g)[latitudeIndex];
+            var longitude = pointString.match(/[-\d.]+/g)[longitudeIndex];
             point = new google.maps.LatLng(latitude,longitude);
         }
         else
