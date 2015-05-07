@@ -32,8 +32,7 @@ class MapInputAsset extends \yii\web\AssetBundle
 
     private function getGoogleMapScriptUrl()
     {
-        $protocol = \Yii::$app->request->isSecureConnection ? "https" : "http";
-        $scriptUrl  =  $protocol . "://maps.googleapis.com/maps/api/js?";
+        $scriptUrl  =  "//maps.googleapis.com/maps/api/js?";
         $scriptUrl .= http_build_query([
             'key' => self::$key,
             'sensor' => 'false',
