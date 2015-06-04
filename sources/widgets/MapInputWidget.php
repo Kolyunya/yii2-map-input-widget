@@ -26,6 +26,12 @@ class MapInputWidget extends \yii\widgets\InputWidget
     public $animateMarker = false;
 
     public $alignMapCenter = true;
+    
+    /** @var boolean Display a search box above the map */
+    public $showSearchBox = false;
+    
+    /** @var string Placeholder for the search box */
+    public $searchBoxPlaceholder = "Search place";
 
     public function run()
     {
@@ -50,6 +56,8 @@ class MapInputWidget extends \yii\widgets\InputWidget
                 'mapType' => $this->mapType,
                 'animateMarker' => $this->animateMarker,
                 'alignMapCenter' => $this->alignMapCenter,
+                'showSearchBox' => $this->showSearchBox,
+                'searchBoxPlaceholder' => $this->searchBoxPlaceholder,
             ]
         );
     }
@@ -57,5 +65,6 @@ class MapInputWidget extends \yii\widgets\InputWidget
     private function configureAssetBundle()
     {
         \kolyunya\yii2\assets\MapInputAsset::$key = $this->key;
+        \kolyunya\yii2\assets\MapInputAsset::$showSearchBox = $this->showSearchBox;
     }
 }

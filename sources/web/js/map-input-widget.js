@@ -115,8 +115,59 @@ function MapInputWidget ( widget )
                 );
             }
         );
-
     };
+    
+    var initializeSearchBox = function ()
+    {
+        var input = /** @type {HTMLInputElement} */(
+            document.getElementById(self.getId()+'-pac-input'));
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        var searchBox = new google.maps.places.SearchBox(
+                /** @type {HTMLInputElement} */(input));
+
+        // [START region_getplaces]
+        // Listen for the event fired when the user selects an item from the
+        // pick list. Retrieve the matching places for that item.
+        google.maps.event.addListener(searchBox, 'places_changed', function () {
+            var places = searchBox.getPlaces();
+            var markers = [];
+
+            if (places.length == 0) {
+                return;
+            }
+            for (var i = 0, marker; marker = markers[i]; i++) {
+                marker.setMap(null);
+            }
+
+            // For each place, get the icon, place name, and location.
+            markers = [];
+            var bounds = new google.maps.LatLngBounds();
+            for (var i = 0, place; place = places[i]; i++) {
+                self.setPosition(place.geometry.location);
+                bounds.extend(place.geometry.location);
+            }
+            google.maps.event.addListenerOnce(map, "bounds_changed", function() { 
+                map.setZoom(Math.min(15, map.getZoom()));
+            });
+            map.fitBounds(bounds);
+        });
+        // [END region_getplaces]
+
+        // Bias the SearchBox results towards places that are within the bounds of the
+        // current map's viewport.
+        google.maps.event.addListener(map, 'bounds_changed', function () {
+            var bounds = map.getBounds();
+            searchBox.setBounds(bounds);
+        });
+        
+        // Prevent enter key from submitting the form
+        google.maps.event.addDomListener(input, 'keydown', function(e) { 
+            if (e.keyCode == 13) { 
+                e.preventDefault(); 
+            }
+        }); 
+    }
 
     var initializeWidget = function()
     {
@@ -223,6 +274,7 @@ function MapInputWidget ( widget )
     {
         initializeComponents();
         initializeMap();
+        initializeSearchBox();
         initializeWidget();
     };
 

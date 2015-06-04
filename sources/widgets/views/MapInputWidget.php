@@ -35,6 +35,14 @@ echo Html::beginTag(
         ]
     );
 
+    // Search box
+    if ($showSearchBox) {
+        echo Html::input('text', 'map-search-box', null, [
+            'id' => $id.'-pac-input', 
+            'placeholder' => $searchBoxPlaceholder, 
+            'class' => 'kolyunya-map-input-search-box']);
+    }
+    
     // Map canvas
     echo Html::tag(
         'div',
