@@ -6,6 +6,8 @@ class MapInputAsset extends \yii\web\AssetBundle
 {
 
     public static $key;
+    
+    public static $showSearchBox;
 
     public $sourcePath = '@kolyunya/yii2-map-input-widget/sources/web';
 
@@ -27,17 +29,23 @@ class MapInputAsset extends \yii\web\AssetBundle
         } else {
             $this->js[] = 'js/map-input-widget.min.js';
         }
+        
+        if (self::$showSearchBox)
+            $this->css[] = 'css/map-input-widget.css';
+        
         parent::__construct($config);
     }
 
     private function getGoogleMapScriptUrl()
     {
-        $scriptUrl  =  "//maps.googleapis.com/maps/api/js?";
-        $scriptUrl .= http_build_query([
+        $opts = [
             'key' => self::$key,
             'sensor' => 'false',
-            'libraries' => 'places',
-        ]);
+        ];
+        if (self::$showSearchBox)
+            $opts['libraries'] = 'places';
+        $scriptUrl  =  "//maps.googleapis.com/maps/api/js?";
+        $scriptUrl .= http_build_query($opts);
         return $scriptUrl;
     }
 }
