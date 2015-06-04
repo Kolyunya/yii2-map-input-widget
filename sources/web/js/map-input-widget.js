@@ -160,6 +160,13 @@ function MapInputWidget ( widget )
             var bounds = map.getBounds();
             searchBox.setBounds(bounds);
         });
+        
+        // Prevent enter key from submitting the form
+        google.maps.event.addDomListener(input, 'keydown', function(e) { 
+            if (e.keyCode == 13) { 
+                e.preventDefault(); 
+            }
+        }); 
     }
 
     var initializeWidget = function()
