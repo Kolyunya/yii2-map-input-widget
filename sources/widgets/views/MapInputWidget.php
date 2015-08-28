@@ -22,6 +22,8 @@ echo Html::beginTag(
             'map-type' => $mapType,
             'animate-marker' => $animateMarker,
             'align-map-center' => $alignMapCenter,
+            'customLat' => $customLat,
+            'customLng' => $customLng,
         ],
     ]
 );

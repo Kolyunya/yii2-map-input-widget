@@ -27,6 +27,10 @@ class MapInputWidget extends \yii\widgets\InputWidget
 
     public $alignMapCenter = true;
 
+    public $customLat = '';
+
+    public $customLng = '';
+
     public function run()
     {
 
@@ -50,6 +54,8 @@ class MapInputWidget extends \yii\widgets\InputWidget
                 'mapType' => $this->mapType,
                 'animateMarker' => $this->animateMarker,
                 'alignMapCenter' => $this->alignMapCenter,
+                'customLat' => $this->customLat,
+                'customLng' => $this->customLng,
             ]
         );
     }
