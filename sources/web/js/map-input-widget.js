@@ -53,11 +53,15 @@ function MapInputWidget ( widget )
 
     const inputSelector = 'input.kolyunya-map-input-widget-input';
 
+    const searchBarSelector = 'input.kolyunya-map-input-widget-search-bar';
+
     const canvasSelector = 'div.kolyunya-map-input-widget-canvas';
 
     var self = this;
 
     var input;
+
+    var searchBar;
 
     var canvas;
 
@@ -66,6 +70,7 @@ function MapInputWidget ( widget )
     var initializeComponents = function()
     {
         input = $(widget).find(inputSelector).get(0);
+        searchBar = $(widget).find(searchBarSelector).get(0);
         canvas = $(widget).find(canvasSelector).get(0);
     };
 
@@ -124,6 +129,28 @@ function MapInputWidget ( widget )
         self.setPosition(point);
         $(widget).data('initialized',true);
     };
+
+    var initializeSearchBar = function()
+    {
+        var searchBarIsEnabled = $(widget).data('enable-search-bar');
+        var searchBarIsHidden = !searchBarIsEnabled;
+        $(searchBar).prop('hidden',searchBarIsHidden);
+        searchBarAutocomplete = new google.maps.places.Autocomplete(searchBar);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(searchBar);
+        google.maps.event.addListener(
+            searchBarAutocomplete,
+            'place_changed',
+            function() {
+                var place = this.getPlace();
+                var placeGeometry = place.geometry;
+                if ( placeGeometry )
+                {
+                    var placeLocation = placeGeometry.location;
+                    self.setPosition(placeLocation);
+                }
+            }
+        );
+    }
 
     var makePointString = function ( pointData )
     {
@@ -224,6 +251,7 @@ function MapInputWidget ( widget )
         initializeComponents();
         initializeMap();
         initializeWidget();
+        initializeSearchBar();
     };
 
     // Returns widget identifier

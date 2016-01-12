@@ -27,6 +27,8 @@ class MapInputWidget extends \yii\widgets\InputWidget
 
     public $alignMapCenter = true;
 
+    public $enableSearchBar = true;
+
     public function run()
     {
 
@@ -50,6 +52,7 @@ class MapInputWidget extends \yii\widgets\InputWidget
                 'mapType' => $this->mapType,
                 'animateMarker' => $this->animateMarker,
                 'alignMapCenter' => $this->alignMapCenter,
+                'enableSearchBar' => $this->enableSearchBar,
             ]
         );
     }

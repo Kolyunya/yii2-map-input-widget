@@ -22,6 +22,7 @@ echo Html::beginTag(
             'map-type' => $mapType,
             'animate-marker' => $animateMarker,
             'align-map-center' => $alignMapCenter,
+            'enable-search-bar' => $enableSearchBar,
         ],
     ]
 );
@@ -35,13 +36,22 @@ echo Html::beginTag(
         ]
     );
 
+    // Search bar input
+    echo Html::input(
+        'text',
+        null,
+        null,
+        [
+            'class' => 'kolyunya-map-input-widget-search-bar',
+        ]
+    );
+
     // Map canvas
     echo Html::tag(
         'div',
         '',
         [
             'class' => 'kolyunya-map-input-widget-canvas',
-            'style' => "width: 100%; height: 100%",
         ]
     );
 

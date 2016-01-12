@@ -24,8 +24,10 @@ class MapInputAsset extends \yii\web\AssetBundle
         $this->js[] = $this->getGoogleMapScriptUrl();
         if (YII_DEBUG) {
             $this->js[] = 'js/map-input-widget.js';
+            $this->css[] = 'css/map-input-widget.css';
         } else {
             $this->js[] = 'js/map-input-widget.min.js';
+            $this->css[] = 'css/map-input-widget.min.css';
         }
         parent::__construct($config);
     }
@@ -35,7 +37,7 @@ class MapInputAsset extends \yii\web\AssetBundle
         $scriptUrl  =  "//maps.googleapis.com/maps/api/js?";
         $scriptUrl .= http_build_query([
             'key' => self::$key,
-            'sensor' => 'false',
+            'libraries' => 'places',
         ]);
         return $scriptUrl;
     }

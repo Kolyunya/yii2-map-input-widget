@@ -66,6 +66,9 @@ echo $form->field($model, 'coordinates')->widget(
         // Defaults to true.
         'alignMapCenter' => false,
 
+        // A flag which defines if a search bar should be rendered over the map.
+        'enableSearchBar' => true,
+
     ]
 );
 ~~~

@@ -1,0 +1,4 @@
+#!/bin/sh
+cd ../sources/web
+yui-compressor js/map-input-widget.js > js/map-input-widget.min.js
+yui-compressor css/map-input-widget.css > css/map-input-widget.min.css
