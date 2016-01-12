@@ -35,7 +35,6 @@ class MapInputAsset extends \yii\web\AssetBundle
         $scriptUrl  =  "//maps.googleapis.com/maps/api/js?";
         $scriptUrl .= http_build_query([
             'key' => self::$key,
-            'sensor' => 'false',
         ]);
         return $scriptUrl;
     }
