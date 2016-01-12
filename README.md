@@ -66,6 +66,12 @@ echo $form->field($model, 'coordinates')->widget(
         // Defaults to true.
         'alignMapCenter' => false,
 
+        // Initial a point to display when the map loaded.
+        'customLat' => 42,
+
+        // Initial a point to display when the map loaded.
+        'customLng' => 42,
+
     ]
 );
 ~~~

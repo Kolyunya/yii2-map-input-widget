@@ -116,6 +116,25 @@ function MapInputWidget ( widget )
             }
         );
 
+
+        google.maps.event.addListenerOnce
+        (
+            map,
+            'idle',
+            function ( idle )
+            {
+                self.setPosition
+                (
+                    {
+                        latitude: $(widget).data('customlat'),
+                        longitude: $(widget).data('customlng'),
+                    }
+                );
+            }
+        );
+
+    };
+
     };
 
     var initializeWidget = function()
