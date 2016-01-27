@@ -248,10 +248,12 @@ function MapInputWidget ( widget )
     // Initializes widget
     this.initialize = function()
     {
+        $(widget).trigger('initialize:before');
         initializeComponents();
         initializeMap();
         initializeWidget();
         initializeSearchBar();
+        $(widget).trigger('initialize:after',{'MapInputWidget':this});
     };
 
     // Returns widget identifier
@@ -335,5 +337,10 @@ function MapInputWidget ( widget )
         map.setZoom(zoom);
     };
 
+    // Get google map
+    this.getMap = function()
+    {
+        return map;
+    }
 
 };
