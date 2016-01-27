@@ -337,21 +337,3 @@ function MapInputWidget ( widget )
 
 
 };
-
-// A global instance of map inputs manager.
-// Use it to get references to widget instances.
-var mapInputWidgetManager;
-
-$(window).load
-(
-    function()
-    {
-
-        // Create an instance of widget manager
-        mapInputWidgetManager = new MapInputWidgetManager();
-
-        // Initialize widgets
-        mapInputWidgetManager.initializeWidgets();
-
-    }
-);
