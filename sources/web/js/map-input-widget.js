@@ -219,7 +219,7 @@ function MapInputWidget ( widget )
 
     var getPattern = function()
     {
-        var pattern = $(widget).data('pattern');
+        var pattern = $(widget).attr('data-pattern').toString();
         return pattern;
     };
 
@@ -248,10 +248,19 @@ function MapInputWidget ( widget )
     // Initializes widget
     this.initialize = function()
     {
+
+        var eventInitializeBefore = jQuery.Event("initializeBefore");
+        eventInitializeBefore.MapInputWidget = this;
+        $(widget).trigger(eventInitializeBefore);
+
         initializeComponents();
         initializeMap();
         initializeWidget();
         initializeSearchBar();
+
+        var eventInitializeAfter = jQuery.Event("initializeAfter");
+        eventInitializeAfter.MapInputWidget = this;
+        $(widget).trigger(eventInitializeAfter);
     };
 
     // Returns widget identifier
@@ -266,7 +275,6 @@ function MapInputWidget ( widget )
     // Sets marker position to the corresponding point.
     this.setPosition = function ( pointData )
     {
-
         if ( map.marker )
         {
             map.marker.setMap(null);
@@ -317,8 +325,13 @@ function MapInputWidget ( widget )
         );
 
         var pattern = $(widget).data('pattern');
-        var pointString = makePointString(point);
-        $(input).prop('value',pointString);
+
+        var event = jQuery.Event("makePoint");
+        event.pointString = makePointString(point);
+        event.MapInputWidget = this;
+        $(widget).trigger(event);
+
+        $(input).prop('value', event.pointString);
 
     };
 
@@ -335,23 +348,10 @@ function MapInputWidget ( widget )
         map.setZoom(zoom);
     };
 
+    // Get google map
+    this.getMap = function()
+    {
+        return map;
+    }
 
 };
-
-// A global instance of map inputs manager.
-// Use it to get references to widget instances.
-var mapInputWidgetManager;
-
-$(window).load
-(
-    function()
-    {
-
-        // Create an instance of widget manager
-        mapInputWidgetManager = new MapInputWidgetManager();
-
-        // Initialize widgets
-        mapInputWidgetManager.initializeWidgets();
-
-    }
-);

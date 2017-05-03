@@ -29,6 +29,8 @@ class MapInputWidget extends \yii\widgets\InputWidget
 
     public $enableSearchBar = true;
 
+    public $viewFile = 'MapInputWidget';
+
     public function run()
     {
 
@@ -38,7 +40,7 @@ class MapInputWidget extends \yii\widgets\InputWidget
         $this->configureAssetBundle();
 
         return $this->render(
-            'MapInputWidget',
+            $this->viewFile,
             [
                 'id' => $this->getId(),
                 'model' => $this->model,
