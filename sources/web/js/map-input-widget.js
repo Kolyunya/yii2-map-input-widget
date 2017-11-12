@@ -335,6 +335,17 @@ function MapInputWidget ( widget )
         map.setZoom(zoom);
     };
 
+    // Resize the map
+    this.resize = function()
+    {
+        google.maps.event.trigger(map, "resize");
+    };
+
+    // Gets the initial point
+    this.getInitialPoint = function ()
+    {
+        return getInitialValue();
+    };
 
 };
 
@@ -342,9 +353,7 @@ function MapInputWidget ( widget )
 // Use it to get references to widget instances.
 var mapInputWidgetManager;
 
-$(window).load
-(
-    function()
+$(window).on('load', function()
     {
 
         // Create an instance of widget manager
