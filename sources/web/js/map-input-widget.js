@@ -105,21 +105,23 @@ function MapInputWidget ( widget )
             }
         );
 
-        google.maps.event.addListener
-        (
-            map,
-            'click',
-            function ( click )
-            {
-                self.setPosition
-                (
-                    {
-                        latitude: click.latLng.lat(),
-                        longitude: click.latLng.lng(),
-                    }
-                );
-            }
-        );
+        if(isEditMode()){
+            google.maps.event.addListener
+            (
+                map,
+                'click',
+                function ( click )
+                {
+                    self.setPosition
+                    (
+                        {
+                            latitude: click.latLng.lat(),
+                            longitude: click.latLng.lng(),
+                        }
+                    );
+                }
+            );
+        }
 
     };
 
@@ -245,6 +247,12 @@ function MapInputWidget ( widget )
         return point;
     }
 
+    var isEditMode = function ()
+    {
+        var mode = $(widget).data('edit-mode');
+        return mode === 1;
+    };
+
     // Initializes widget
     this.initialize = function()
     {
@@ -301,7 +309,7 @@ function MapInputWidget ( widget )
             {
                 map: map,
                 position: point,
-                draggable: true,
+                draggable: isEditMode(),
                 animation: markerAnimation,
             }
         );
