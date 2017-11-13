@@ -29,6 +29,8 @@ class MapInputWidget extends \yii\widgets\InputWidget
 
     public $enableSearchBar = true;
 
+    public $editMode = true;
+
     public function run()
     {
 
@@ -53,6 +55,7 @@ class MapInputWidget extends \yii\widgets\InputWidget
                 'animateMarker' => $this->animateMarker,
                 'alignMapCenter' => $this->alignMapCenter,
                 'enableSearchBar' => $this->enableSearchBar,
+                'editMode' => $this->editMode
             ]
         );
     }
