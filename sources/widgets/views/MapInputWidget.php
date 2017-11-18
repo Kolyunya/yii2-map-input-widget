@@ -22,7 +22,7 @@ echo Html::beginTag(
             'map-type' => $mapType,
             'animate-marker' => $animateMarker,
             'align-map-center' => $alignMapCenter,
-            'enable-search-bar' => $enableSearchBar,,
+            'enable-search-bar' => $enableSearchBar,
             'edit-mode' => $editMode
         ],
     ]
