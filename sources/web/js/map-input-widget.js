@@ -342,8 +342,7 @@ function MapInputWidget ( widget )
 // Use it to get references to widget instances.
 var mapInputWidgetManager;
 
-$(window).load
-(
+$(window).on('load',
     function()
     {
 
