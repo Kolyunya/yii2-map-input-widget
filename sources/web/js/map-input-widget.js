@@ -342,9 +342,7 @@ function MapInputWidget ( widget )
 // Use it to get references to widget instances.
 var mapInputWidgetManager;
 
-$(window).load
-(
-    function()
+$(window).on('load', function()
     {
 
         // Create an instance of widget manager
