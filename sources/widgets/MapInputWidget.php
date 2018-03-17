@@ -6,9 +6,6 @@ use Yii;
 
 class MapInputWidget extends \yii\widgets\InputWidget
 {
-
-    public $key;
-
     public $latitude = 0;
 
     public $longitude = 0;
@@ -31,11 +28,7 @@ class MapInputWidget extends \yii\widgets\InputWidget
 
     public function run()
     {
-
         Yii::setAlias('@kolyunya','@vendor/kolyunya');
-
-        // Asset bundle should be configured with the application key
-        $this->configureAssetBundle();
 
         return $this->render(
             'MapInputWidget',
@@ -55,10 +48,5 @@ class MapInputWidget extends \yii\widgets\InputWidget
                 'enableSearchBar' => $this->enableSearchBar,
             ]
         );
-    }
-
-    private function configureAssetBundle()
-    {
-        \kolyunya\yii2\assets\MapInputAsset::$key = $this->key;
     }
 }
