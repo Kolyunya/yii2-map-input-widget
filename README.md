@@ -17,15 +17,32 @@ echo $form->field($model, 'coordinates')->widget('kolyunya\yii2\widgets\MapInput
 ~~~
 
 ### Extended example
+To configure asset manager use the following configuration
+
+~~~php
+return [
+    // ...
+    'components' => [
+        'assetManager' => [
+            'bundles' => [
+                \kolyunya\yii2\assets\MapInputAsset::class => [
+                    'options' => [
+                        'key' => 'YOUR_GOOGLE_MAPS_API_KEY',
+                        'language' => 'en',
+                        'libraries' => 'places',
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
+~~~
+
 An exhaustive list of widget parameters (which are not derived from [yii\widgets\InputWidget](http://www.yiiframework.com/doc-2.0/yii-widgets-inputwidget.html)) available for configuration is described in the following example.
 ~~~php
 echo $form->field($model, 'coordinates')->widget(
     'kolyunya\yii2\widgets\MapInputWidget',
     [
-
-        // Google maps browser key.
-        'key' => $key,
-
         // Initial map center latitude. Used only when the input has no value.
         // Otherwise the input value latitude will be used as map center.
         // Defaults to 0.
